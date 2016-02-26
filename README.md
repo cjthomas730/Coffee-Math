@@ -1,5 +1,5 @@
 # Coffee-Math
-An experiment in coffee-brewing calculations.
+An experiment in using python for coffee-brewing calculations.
 
 ```
      )))
