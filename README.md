@@ -2,7 +2,7 @@
 An experiment in coffee-brewing calculations.
 
 ```
-    )))
+     )))
      (((
  *--------*
  |        |-.
