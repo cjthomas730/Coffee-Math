@@ -1,6 +1,7 @@
 from __future__ import division
 import math
-
+import six
+import os
 
 POT_SIZE = 12           # Number of cups in the pot
 CUPS_PER_DRINKER = 2    # ~number of pot-cups that go into 1 mug
@@ -12,22 +13,20 @@ print('-------------------------------------------------------------------------
 print("                                IT'S COFFEE TIME                                      ")
 print('--------------------------------------------------------------------------------------')
 
-response = raw_input(">>>> Hello! I'm coffee-bot, would you like to make some coffee? (y/n) ")
+response = six.moves.input(">>>> Hello! I'm coffee-bot, would you like to make some coffee? (y/n) ")
 
 if response in ('Yes', 'Y', 'yes', 'y', 'please'):
-    print(">>>> Very well, lets make it happen")
-    print(">>>>")
+    print(">>>> Very well, lets make it happen" + os.linesep)
 
-    # PT = pot_type
-    PT = raw_input(">>>> Are you using a drip coffee maker (D/d) or a French Press (F/f)? ")
 
-    if PT in ('D', 'd', 'drip'):
-        print("Brewing shall commence at once!")
-        print
+    pot_type = six.moves.input(">>>> Are you using a drip coffee maker (D/d) or a French Press (F/f)? ")
+
+    if pot_type in ('D', 'd', 'drip'):
+        print("Brewing shall commence at once!" + os.linesep)
 
     # 12 CUP DRIP COFFEE CALCULATIONS
 
-        drinkers = raw_input(">>>> How many people would like coffee? ")
+        drinkers = six.moves.input(">>>> How many people would like coffee? ")
         try:
             drinkers = int(drinkers)
         except ValueError:
@@ -68,11 +67,9 @@ if response in ('Yes', 'Y', 'yes', 'y', 'please'):
             print(">>>> For {} people I recommend a pot brewing size of {} cups".format(drinkers, cups))
             print(">>>> For a {} cup pot, I recommend using {} scoops of grounds".format(cups, scoops))
         else:
-            raise RuntimeError("Uh oh - negative drinkers?!")
+            raise RuntimeError("Uh oh - negative drinkers?!" + os.linesep)
 
-        print
-        print("** Remember, use cold water for better brewing **")
-        print
+        print("** Remember, use cold water for better brewing **" + os.linesep)
 
     # FRENCH PRESS COFFEE CALCULATIONS
     else:
